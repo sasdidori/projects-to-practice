@@ -2,6 +2,7 @@ package com.irimit.toDo.controller;
 
 import com.irimit.toDo.data.Todo;
 import com.irimit.toDo.data.TodoRepository;
+import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,17 +17,14 @@ public class ToDoController {
     }
     @PostMapping
     public Todo createTodo(@RequestBody Todo todo){
-        System.out.println(todo.isCompleted());
-        Todo savedTodo = repository.save(todo);
-        System.out.println("saved ToDo: " + savedTodo.isCompleted());
-       return savedTodo;
+       return repository.save(todo);
     }
     @GetMapping
     public List<Todo> getAll(){
         return repository.findAll();
     }
     @GetMapping("isCompleted")
-    public List<Todo> getCompleted(@PathVariable boolean isCompleted){
+    public List<Todo> getByCompleted(@PathParam("isCompleted") boolean isCompleted){
         return repository.findByIsCompleted(isCompleted);
     }
 }
