@@ -10,4 +10,6 @@ public interface ToDoRepository extends JpaRepository <ToDo, Long>{
 
 
     Optional<ToDo> findByWhatToDo(String whatToDo);
+
+     Optional<ToDo> findById(Long id);
 }

@@ -39,9 +39,6 @@ class ToDoRepositoryTest {
         assertEquals(List.of(toDo2), resultToDosFalse);
 
     }
-
-
-
     @Test
     void findByWhatToDo() {
         String whatTodoToFind = "sit";
@@ -53,5 +50,13 @@ class ToDoRepositoryTest {
         String whatTodoToFind = "puh";
         Optional<ToDo> foundedToDo = toDoRepository.findByWhatToDo(whatTodoToFind);
         assertTrue(foundedToDo.isEmpty());
+    }
+
+    @Test
+    void findById(){
+        Long id = toDo1.getId();
+        ToDo resultToDo = toDoRepository.findById(id).orElseThrow();
+
+        assertEquals(toDo1, resultToDo );
     }
 }

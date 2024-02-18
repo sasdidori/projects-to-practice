@@ -9,7 +9,7 @@ public class ToDo {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
     private String whatToDo;
     private boolean isCompleted;
 
@@ -32,6 +32,10 @@ public class ToDo {
 
     public void setIsCompleted(boolean isCompleted) {
         this.isCompleted = isCompleted;
+    }
+
+    public Long getId() {
+        return id;
     }
 
     public ToDo(String whatToDo, boolean isCompleted) {
