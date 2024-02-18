@@ -1,30 +1,37 @@
 package com.irimit.toDo.controller;
 
-import com.irimit.toDo.data.Todo;
-import com.irimit.toDo.data.TodoRepository;
+import com.irimit.toDo.data.ToDo;
+import com.irimit.toDo.data.ToDoRepository;
 import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("toDos")
 public class ToDoController {
-    private TodoRepository repository;
-    public ToDoController(TodoRepository repository) {
+    private ToDoRepository repository;
+    public ToDoController(ToDoRepository repository) {
         this.repository = repository;
     }
-    @PostMapping
-    public Todo createTodo(@RequestBody Todo todo){
-       return repository.save(todo);
-    }
+
     @GetMapping
-    public List<Todo> getAll(){
+    public List<ToDo> getAll(){
         return repository.findAll();
     }
     @GetMapping("isCompleted")
-    public List<Todo> getByCompleted(@PathParam("isCompleted") boolean isCompleted){
+    public List<ToDo> getByCompleted(@PathParam("isCompleted") boolean isCompleted){
         return repository.findByIsCompleted(isCompleted);
     }
+    @PostMapping
+    public ToDo createTodo(@RequestBody ToDo todo){
+        return repository.save(todo);
+    }
+    @PatchMapping
+    public ToDo updateToDo(@RequestBody ToDo todo){
+        return repository.update(todo);
+    }
+
+
+
 }

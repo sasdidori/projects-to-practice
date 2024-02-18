@@ -5,24 +5,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class Todo {
+public class ToDo {
 
     @Id
     @GeneratedValue
     private long id;
-    private String whatTodo;
+    private String whatToDo;
     private boolean isCompleted;
 
-    public Todo() {
+    public ToDo() {
 
     }
 
-    public String getWhatTodo() {
-        return whatTodo;
+    public String getWhatTODo() {
+        return whatToDo ;
     }
 
-    public void setWhatTodo(String whatTodo) {
-        this.whatTodo = whatTodo;
+    public void setWhatToDo(String whatToDo) {
+        this.whatToDo = whatToDo;
     }
 
     public boolean isCompleted() {
@@ -34,8 +34,8 @@ public class Todo {
         this.isCompleted = isCompleted;
     }
 
-    public Todo(String whatTodo, boolean isCompleted) {
-        this.whatTodo = whatTodo;
+    public ToDo(String whatToDo, boolean isCompleted) {
+        this.whatToDo = whatToDo;
         this.isCompleted = isCompleted;
     }
 }
