@@ -37,6 +37,7 @@ class ToDoRepositoryTest {
         assertEquals(List.of(toDo1), resultToDosTrue);
         List<ToDo> resultToDosFalse = toDoRepository.findByIsCompleted(false);
         assertEquals(List.of(toDo2), resultToDosFalse);
+
     }
 
 
@@ -46,5 +47,11 @@ class ToDoRepositoryTest {
         String whatTodoToFind = "sit";
         Optional<ToDo> foundedToDo = toDoRepository.findByWhatToDo(whatTodoToFind);
         assertEquals(whatTodoToFind, foundedToDo.get().getWhatTODo());
+    }
+    @Test
+    void findByWhatToDoNotFound() {
+        String whatTodoToFind = "puh";
+        Optional<ToDo> foundedToDo = toDoRepository.findByWhatToDo(whatTodoToFind);
+        assertTrue(foundedToDo.isEmpty());
     }
 }
