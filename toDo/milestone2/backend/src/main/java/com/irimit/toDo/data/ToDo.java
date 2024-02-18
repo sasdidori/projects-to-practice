@@ -25,7 +25,7 @@ public class ToDo {
         this.whatToDo = whatToDo;
     }
 
-    public boolean isCompleted() {
+    public boolean getIsCompleted() {
         return isCompleted;
     }
 

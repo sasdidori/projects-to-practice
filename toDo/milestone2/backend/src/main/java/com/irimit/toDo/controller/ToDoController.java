@@ -6,6 +6,7 @@ import jakarta.websocket.server.PathParam;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("toDos")
@@ -27,10 +28,10 @@ public class ToDoController {
     public ToDo createTodo(@RequestBody ToDo todo){
         return repository.save(todo);
     }
-    @PatchMapping
-    public ToDo updateToDo(@RequestBody ToDo todo){
-        return repository.update(todo);
-    }
+//    @PatchMapping
+//    public ToDo updateToDo(@RequestBody ToDo todo){
+//        return repository.(todo);
+//    }
 
 
 
